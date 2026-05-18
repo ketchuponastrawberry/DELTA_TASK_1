@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>CHAIN REACTOR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <header id="game-hud">
+            <div class="hud-top">
+                <div class="hud-group">
+                    <p class="hud-label">Turn: <span id="playerTurn">1</span></p>
+                    <p class="hud-label">Turn Time: <span id="playerTimer">15</span>s</p>
+                    <p class="hud-label">Total Time: <span id="gameTimer">05:00</span></p>
+                </div>
+                <div class="hud-group" id="scoreboard">
+                    <p>Player 1: <span id="player1Score">0</span></p>
+                    <p>Player 2: <span id="player2Score">0</span></p>
+                </div>
+                <div class="hud-controls">
+                    <button id="startButton" class="primary">Start</button>
+                    <button id="pauseButton" disabled>Pause</button>
+                    <button id="resetButton">Reset</button>
+                </div>
+            </div>
+            <div class="settings-row">
+                <label>Rows
+                    <input type="number" id="boardRows" min="4" max="10" value="6">
+                </label>
+                <label>Cols
+                    <input type="number" id="boardCols" min="8" max="14" value="12">
+                </label>
+                <label>Players
+                    <select id="playerCount">
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="botMode">
+                    Bot opponent
+                </label>
+            </div>
+        </header>
+        <main id="main-content">
+            <section id="board-panel">
+                <div id="board-info">
+                    <div class="info-card">
+                        <h3>Power Ups</h3>
+                        <div class="power-row">
+                            <button id="bombButton" disabled>Bomb</button>
+                            <button id="timeBoostButton" disabled>Time Boost</button>
+                        </div>
+                        <div class="info-row">
+                            <p>Bombs: <span id="bombCount">1</span></p>
+                            <p>Boosts: <span id="timeBoostCount">1</span></p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <h3>Game Guide</h3>
+                        <p>Cells explode when they reach capacity.</p>
+                        <p> Cells explode when orb count reaches critical mass.</p>
+                        <p>Corners = 2, edges = 3, center = 4.</p>
+                        <p>Captured pieces turn into your color during explosions.</p>
+                    </div>
+                </div>
+                <div id="board-grid"></div>
+            </section>
+            <aside id="side-panel">
+                <section class="panel-card move-history-card">
+                    <header><h3>Move History</h3></header>
+                    <div id="moveHistory"></div>
+                </section>
+                <section class="panel-card replay-card">
+                    <header><h3>Replay</h3></header>
+                    <div class="replay-controls">
+                        <button id="replayStart">Start</button>
+                        <button id="replayPrev" disabled>&larr;</button>
+                        <button id="replayPause" disabled>Pause</button>
+                        <button id="replayNext" disabled>&rarr;</button>
+                    </div>
+                </section>
+            </aside>
+        </main>
+        <div id="overlay" class="hidden">
+            <div class="overlay-card">
+                <p id="overlayText">Paused</p>
+            </div>
+        </div>
+    </div>
+    <script src="ui_controller.js"></script>
+</body>
+</html>
