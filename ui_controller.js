@@ -54,8 +54,6 @@ const state = {
 };
 const overlay = document.getElementById("overlay");
 const overlayCard = overlay.querySelector(".overlay-card");
-
-// Click on background → close
 overlay.addEventListener("click", (e) => {
     if (!overlayCard.contains(e.target)) {
         overlay.classList.add("hidden");
