@@ -1,4 +1,3 @@
-/* ===== GOOGLE FONT IMPORT ===== */
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 
 :root {
@@ -28,7 +27,6 @@ html, body {
     overflow-x: hidden;
 }
 
-/* ===== ANIMATED BACKGROUND — drifting star particles ===== */
 body::before,
 body::after {
     content: '';
@@ -71,7 +69,6 @@ body::after {
     to   { background-position: 0 120px; }
 }
 
-/* ===== AURORA GLOW BAND ===== */
 #game-container::before {
     content: '';
     position: fixed;
@@ -97,7 +94,6 @@ body::after {
     100% { transform: translateX(8%)  rotate(-2deg); opacity: 0.7; }
 }
 
-/* ===== BUTTON ===== */
 button {
     border: none;
     cursor: pointer;
@@ -112,7 +108,6 @@ button {
     position: relative;
     overflow: hidden;
 }
-/* shimmer sweep */
 button::after {
     content: '';
     position: absolute;
@@ -132,7 +127,6 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
 
 .primary { background: linear-gradient(135deg, #5b8cff, #2a72ff); }
 
-/* ===== LAYOUT ===== */
 #game-container {
     max-width: 1400px;
     margin: auto;
@@ -198,7 +192,6 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     box-shadow: 0 0 12px rgba(75,124,255,0.38);
 }
 
-/* ===== MAIN CONTENT ===== */
 #main-content {
     margin-top: 1rem;
     display: grid;
@@ -235,7 +228,6 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
 .power-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 .info-row  { display: flex; gap: 1rem;    flex-wrap: wrap; }
 
-/* ===== BOARD GRID ===== */
 #board-grid {
     display: grid;
     grid-template-columns: repeat(var(--cols), 1fr);
@@ -255,7 +247,6 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     50%       { box-shadow: inset 0 0 50px rgba(75,124,255,0.1);  }
 }
 
-/* ===== CELL ===== */
 .cell {
     position: relative;
     overflow: hidden;
@@ -277,19 +268,16 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     box-shadow: 0 8px 24px rgba(0,0,0,0.55), 0 0 18px rgba(255,255,255,0.08);
 }
 
-/* Owner tints */
 .cell.owner-1 { background: rgba(255,59,48,0.1); }
 .cell.owner-2 { background: rgba(0,170,255,0.1); }
 .cell.owner-3 { background: rgba(255,213,0,0.1); }
 .cell.owner-4 { background: rgba(0,255,149,0.1); }
 
-/* Top-edge glow accent per owner */
 .cell.owner-1::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, transparent, #ff3b3099, transparent); border-radius:14px 14px 0 0; }
 .cell.owner-2::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, transparent, #00aaff99, transparent); border-radius:14px 14px 0 0; }
 .cell.owner-3::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, transparent, #ffd50099, transparent); border-radius:14px 14px 0 0; }
 .cell.owner-4::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, transparent, #00ff9599, transparent); border-radius:14px 14px 0 0; }
 
-/* ===== PORTAL ===== */
 .cell.portal {
     border: 1.5px solid #a855f7;
     animation: portalPulse 2.2s ease-in-out infinite;
@@ -315,7 +303,6 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     text-shadow: 0 0 6px #a855f7;
 }
 
-/* ===== COUNT NUMBER ===== */
 .count-number {
     position: absolute;
     top: 5px; left: 7px;
@@ -328,14 +315,12 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     letter-spacing: 0.02em;
 }
 
-/* ===== ORB CONTAINER ===== */
 .orb-container {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-/* ===== ORB ===== */
 .orb {
     position: absolute;
     width: 16px; height: 16px;
@@ -365,7 +350,6 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     100% { scale: 0.85; opacity: 0.75; filter: brightness(0.9);  }
 }
 
-/* ===== EXPLOSION ===== */
 .cell.explode {
     animation: explodeAnim 0.38s cubic-bezier(0.22,1,0.36,1) forwards;
 }
@@ -377,7 +361,6 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     100% { transform: scale(1);    filter: brightness(1)   hue-rotate(0deg);   }
 }
 
-/* ===== CLICK RIPPLE ===== */
 .cell::before {
     content: '';
     position: absolute;
@@ -395,7 +378,6 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     transform: scale(1.6);
 }
 
-/* ===== SIDE PANEL ===== */
 #side-panel { display: grid; gap: 1rem; }
 
 #moveHistory {
@@ -430,7 +412,6 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
 
 .replay-controls { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
-/* ===== OVERLAY ===== */
 #overlay {
     position: fixed;
     inset: 0;
@@ -440,8 +421,6 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     z-index: 999;
     backdrop-filter: blur(6px);
     animation: overlayIn 0.35s ease both;
-
-    /* ✅ allow clicks */
     pointer-events: auto;
 }
 @keyframes overlayIn {
@@ -465,7 +444,6 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     position: relative;
     overflow: hidden;
 }
-/* spinning rainbow border on overlay card */
 .overlay-card::before {
     content: '';
     position: absolute;
@@ -488,8 +466,6 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     to   { transform: scale(1)   translateY(0);    opacity: 1; }
 }
 #overlay.hidden { display: none; }
-
-/* ===== RESPONSIVE ===== */
 @media (max-width: 980px) {
     #main-content { grid-template-columns: 1fr; }
 }
